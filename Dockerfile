@@ -3,12 +3,20 @@
 # tools, that user can use to debug the networking issue or to generate the
 # networking workload using the tools like iperf, tcpreplay etc.
 # Currently this image includes following networking tools
-# iperf
-# tcpreplay
-# nmon
-# arp
-# net-tools (ifconfig, etc)
+# net-tools (ifconfig )
+# traceroute 
+# ethtool 
+# mtr 
+# iperf 
+#  nmap 
+# strace 
+# socat 
+# iproute 
 # bind-utils (nslookup)
+# wireshark 
+# nmon 
+# bmon 
+# openssl 
 
 # Following tools are already present with the base centos image and can be 
 # very useful in debugging networking issues.
@@ -25,7 +33,6 @@
 # tcpdump
 # host
 # dig
-#
 #
 
 FROM centos:centos7.7.1908
