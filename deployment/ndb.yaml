@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ndb
+  namespace: ndb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ndb
+  template:
+    metadata:
+      labels:
+        app: ndb
+    spec:
+      containers:
+      - name: ndb
+        image: avishnoi/ndb:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5001
