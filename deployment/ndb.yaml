@@ -18,6 +18,7 @@ spec:
       - name: ndb
         image: avishnoi/ndb:latest
         imagePullPolicy: Always
+        restartPolicy: OnFailure
         ports:
         - containerPort: 5001
         resources:
