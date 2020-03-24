@@ -66,4 +66,4 @@ RUN yum clean all && rm -rf /var/cache/yum/*
 RUN mkdir -p /root/scripts/
 COPY ./scripts/init-script.sh /root/scripts/
 WORKDIR /root
-ENTRYPOINT /root/init-script.sh
+ENTRYPOINT /root/scripts/init-script.sh
