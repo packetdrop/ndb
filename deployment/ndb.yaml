@@ -4,6 +4,7 @@ metadata:
   name: ndb
   labels:
     app: ndb
+spec:
   replicas: 1
   selector:
     matchLabels:
