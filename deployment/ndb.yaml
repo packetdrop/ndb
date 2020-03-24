@@ -4,13 +4,10 @@ metadata:
   name: ndb
   labels:
     app: ndb
-
   replicas: 1
-
   selector:
     matchLabels:
       app: ndb
-
   template:
     metadata:
       labels:
