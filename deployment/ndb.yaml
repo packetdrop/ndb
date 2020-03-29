@@ -18,7 +18,7 @@ spec:
       - name: ndb
         image: avishnoi/ndb:latest
         imagePullPolicy: Always
-        command: ["/root/init-script.sh", "infinity"]
+        command: ["/root/scripts/init-script.sh", "infinity"]
         ports:
         - containerPort: 5001
         resources:
