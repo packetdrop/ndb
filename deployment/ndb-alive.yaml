@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ndb
+  name: ndb-alive
   labels:
-    app: ndb
+    app: ndb-alive
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ndb
+      app: ndb-alive
   template:
     metadata:
       labels:
-        app: ndb
+        app: ndb-alive
     spec:
       containers:
-      - name: ndb
+      - name: ndb-alive
         image: avishnoi/ndb:latest
         imagePullPolicy: IfNotPresent
         command: ["/root/scripts/init-script.sh", "infinity"]

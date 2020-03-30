@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ndb-dead
+  labels:
+    app: ndb-dead
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ndb-dead
+  template:
+    metadata:
+      labels:
+        app: ndb-dead
+    spec:
+      containers:
+      - name: ndb-dead
+        image: avishnoi/ndb:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/root/scripts/init-script.sh", "5s"]
+        ports:
+        - containerPort: 5001
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
