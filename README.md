@@ -34,13 +34,30 @@ make clean
 
 ### Run Docker container
 ```shell
-docker run  -itd --rm --name=ndb quay.io/packetdrop/ndb:latest
-
-or 
-
 docker run  -itd --rm --name=ndb ghcr.io/packetdrop/ndb:latest
 
 or 
 
+docker run  -itd --rm --name=ndb quay.io/packetdrop/ndb:latest
+
+or 
+
 docker run  -itd --rm --name=ndb avishnoi/ndb:latest
+```
+
+### Run Kubernetes Pod
+```shell
+kubectl run ndb --image=ghcr.io/packetdrop/ndb:latest --restart=Never
+```
+
+You can exec now to the pod and run the tools packed in the image.
+
+```shell
+kubectl exec -it ndb -- /bin/bash
+```
+
+You can use the manifest files present in the `./deployment` directory to deploy the pod as well.
+
+```shell
+kubectl apply -f ./deployment/ndb-pod.yaml
 ```
