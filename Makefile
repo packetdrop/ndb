@@ -10,7 +10,7 @@
 all: build push
 
 build: 
-	docker build -t avishnoi/ndb -f Dockerfile .
+	docker buildx build -t avishnoi/ndb:latest -f Dockerfile .
 
 clean: 
 	echo "Clean up the existing ndb image"

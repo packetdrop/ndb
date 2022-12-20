@@ -28,8 +28,8 @@ RUN INSTALL_PKGS=" \
 	nmon \
 	bmon \
         " && \
-	apt -y update; apt install -y $INSTALL_PKGS
+	apt-get -y update; apt-get install -y $INSTALL_PKGS
 
 RUN apt clean all && rm -rf /var/cache/apt/*
 WORKDIR /root
-ENTRYPOINT [ "sleep", "100000" ]
+CMD [ "sleep", "100000" ]
