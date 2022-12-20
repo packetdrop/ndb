@@ -1,14 +1,46 @@
 # Network Debugger (ndb) 
-This project builds a ghrc/docker/quay images with network debugging tools and publish it to their respective repository.
-Please refer to the [Docker file](Dockerfile) to see the upto date list of tools present in this image.
+This project builds a container image with network debugging tools and publish it to docker hub, quay and as a github package.
 
-To build the image, fire following command from project root directory:
+Container images packs following tools : iperf3, netperf, traceroute, iproute2, wireshark, mtr, ethtools and many more.
+Please refer to the [Docker file](Dockerfile) for full list of tools this image contains.
+
+To pull the image
+
+#### Quay
+```shell
+docker pull quay.io/packetdrop/ndb:latest
+```
+#### Github Packages
+```shell
+docker pull ghcr.io/packetdrop/ndb:latest
+```
+
+### Docker hub
+```shell
+docker pull avishnoi/ndb:latest
+```
+
+### Build image locally 
 ```
 make build
 ```
 
-To cleanup the previously built image:
+### Cleanup existing local image
 ```
 make clean
 ```
   
+## Usages
+
+### Run Docker container
+```shell
+docker run  -itd --rm --name=ndb quay.io/packetdrop/ndb:latest
+
+or 
+
+docker run  -itd --rm --name=ndb ghcr.io/packetdrop/ndb:latest
+
+or 
+
+docker run  -itd --rm --name=ndb avishnoi/ndb:latest
+```
