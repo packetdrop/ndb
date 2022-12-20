@@ -31,8 +31,5 @@ RUN INSTALL_PKGS=" \
 	apt -y update; apt install -y $INSTALL_PKGS
 
 RUN apt clean all && rm -rf /var/cache/apt/*
-
-RUN mkdir -p /root/scripts/
-COPY ./scripts/init-script.sh /root/scripts/
 WORKDIR /root
-ENTRYPOINT /root/scripts/init-script.sh
+ENTRYPOINT [ "sleep", "100000" ]
