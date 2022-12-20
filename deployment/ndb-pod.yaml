@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: ndb
+  name: ndb
+spec:
+  containers:
+  - name: ndb
+    image: ghcr.io/packetdrop/ndb:latest
+    args:
+    - /bin/sh
+    - -c
+    - sleep 10000
+  nodeName: ""
+  restartPolicy: Never
