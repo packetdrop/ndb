@@ -1,48 +1,18 @@
 #
-# This Dockerfile generates an centos based image that contains networking
+# This Dockerfile generates an Ubuntu based image that contains networking
 # tools, that user can use to debug the networking issue or to generate the
 # networking workload using the tools like iperf, tcpreplay etc.
-# Currently this image includes following networking tools
-# net-tools (ifconfig )
-# traceroute 
-# ethtool 
-# mtr 
-# iperf 
-#  nmap 
-# strace 
-# socat 
-# iproute 
-# bind-utils (nslookup)
-# wireshark 
-# nmon 
-# bmon 
-# openssl 
 
-# Following tools are already present with the base centos image and can be 
+# Following tools are already present with the base Ubuntu image and can be 
 # very useful in debugging networking issues.
-# ss
-# netstat
-# ping
-# ip
-# ifup
-# ifdown
-# ifquery
-# route
-# nmcli
-# nc
-# tcpdump
-# host
-# dig
-#
+# ss, netstat, ping, ip, ifup, ifdown, ifquery, route, nmcli, nc, tcpdump, host, dig
 
-FROM centos:centos7.7.1908
+FROM ubuntu:22.04
 
 USER root
 
 ENV PYTHONDONTWRITEBYTECODE yes
 
-RUN yum -y update
-RUN yum -y install epel-release
 RUN INSTALL_PKGS=" \
 	net-tools \
 	traceroute \
@@ -52,16 +22,15 @@ RUN INSTALL_PKGS=" \
 	nmap \
 	strace \
 	socat \
-	iproute \
-	bind-utils \
+	iproute2 \
 	wireshark \
+	netperf \
 	nmon \
 	bmon \
-	openssl \
         " && \
-	yum install -y --setopt=skip_missing_names_on_install=False $INSTALL_PKGS
+	apt -y update; apt install -y $INSTALL_PKGS
 
-RUN yum clean all && rm -rf /var/cache/yum/*
+RUN apt clean all && rm -rf /var/cache/apt/*
 
 RUN mkdir -p /root/scripts/
 COPY ./scripts/init-script.sh /root/scripts/

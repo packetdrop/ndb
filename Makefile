@@ -12,10 +12,6 @@ all: build push
 build: 
 	docker build -t avishnoi/ndb -f Dockerfile .
 
-publish:
-	docker login -u avishnoi docker.io/avishnoi
-	docker push docker.io/avishnoi/ndb:latest
-
 clean: 
 	echo "Clean up the existing ndb image"
 	docker rmi avishnoi/ndb:latest
