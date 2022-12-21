@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: iperf-server
+  name: iperf-server
+spec:
+  containers:
+  - name: iperf-server
+    image: ghcr.io/packetdrop/ndb:latest
+    args:
+    - iperf3
+    - -s
+  nodeName: ""
+  restartPolicy: Never
+---
+apiVersion: v1
+kind: Pod
+metadata:
+    labels:
+      app: iperf-client
+    name: iperf-client
+spec:
+    containers:
+    - name: iperf
+      image: ghcr.io/packetdrop/ndb:latest
+      args:
+      - /bin/sh
+      - -c
+      - sleep 1000
+    nodeName: ""
+    restartPolicy: Never

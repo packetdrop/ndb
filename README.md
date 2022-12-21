@@ -1,8 +1,13 @@
 # Network Debugger (ndb) 
-This project builds a container image with network debugging tools and publish it to docker hub, quay and as a github package.
+This project:
 
-Container images packs following tools : iperf3, netperf, traceroute, iproute2, wireshark, mtr, ethtools and many more.
+*.* builds a container image with network debugging tools and publish it to docker hub, quay and as a github package.
+*.* provide various kubernetes manifest files that user can deploy for quick tests e.g iperf or netperf server/client. 
+
+Container image packs following tools : iperf3, netperf, traceroute, iproute2, wireshark, mtr, ethtools and many more.
 Please refer to the [Docker file](Dockerfile) for full list of tools this image contains.
+
+**Note**: Container images are generate for both arm64 and amd64 platforms.
 
 To pull the image
 
