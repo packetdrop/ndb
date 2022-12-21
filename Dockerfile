@@ -18,7 +18,7 @@ RUN INSTALL_PKGS=" \
 	traceroute \
 	ethtool \
 	mtr \
-	iperf \
+	iperf3 \
 	nmap \
 	strace \
 	socat \
