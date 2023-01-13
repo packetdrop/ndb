@@ -35,8 +35,8 @@ apiVersion: v1
 kind: Pod
 metadata:
     labels:
-      app: netperf-client
-    name: netperf-client
+      app: iperf-client
+    name: iperf-client
 spec:
     containers:
     - name: client
